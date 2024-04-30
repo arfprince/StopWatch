@@ -10,7 +10,7 @@ startButton.addEventListener("click",()=>{
     startButton.classList.add("hidden");
     currentTime.innerHTML="  Started  ";
     stopButton.classList.remove("hidden");
-    
+
     buttonState=setInterval(()=>{
         currentTime.innerHTML=`${min} mins, ${sec++} secs`;
         if(sec%60===0){
@@ -22,12 +22,14 @@ startButton.addEventListener("click",()=>{
 });
 
 stopButton.addEventListener("click",()=>{
-    startButton.classList.remove("hidden");
+    currentTime.innerHTML="  Stopped  ";
     stopButton.classList.add("hidden");
-
     clearInterval(buttonState);
-    currentTime.innerHTML=`0 mins, 0 secs`;
-    resolve("sucess");
+    min=sec=0;
+    setTimeout(() => {
+        startButton.classList.remove("hidden");
+        currentTime.innerHTML="Not Started Yet";
+    }, 1000);
 });
 
 
