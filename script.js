@@ -17,7 +17,6 @@ startButton.addEventListener("click",()=>{
             min++;
             sec=0;
         }
-        resolve("sucess");
     },1000);
 });
 
